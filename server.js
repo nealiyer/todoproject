@@ -64,6 +64,27 @@ app.get('/', function(req,res){
 });
 
 
+app.delete('/todos/:id', function(req,res){
+	var todoid = parseInt(req.params.id, 10);
+	var flag = _.findWhere(todos, {id: todoid});
+	todos = _.without(todos, flag);
+	
+		
+
+		if(flag)
+		{
+			res.json(flag);
+		}
+		else
+		{
+			res.status(404).send();
+		}
+
+
+
+	
+});
+
 app.listen(PORT, function(){
     console.log('Express listening on port ' + PORT + '!')
 
