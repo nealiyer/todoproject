@@ -13,7 +13,9 @@ var todoNextId =1;
 app.use(bodyParser.json());
 // GET /todos
 app.get('/todos', function(req, res){
-	res.json(todos);
+	var queryParams = req.query;
+	var filteredTodos = todos;
+	res.json(filteredTodos);
 } );
 
 //GET /todos/:id
